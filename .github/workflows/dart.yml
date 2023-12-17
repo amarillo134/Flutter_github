@@ -4,12 +4,9 @@
 # documentation.
 
 name: Dart
-
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  push
+  pull_request
 
 jobs:
   build:
@@ -24,12 +21,11 @@ jobs:
       # - uses: dart-lang/setup-dart@v1
       - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
 
-
       - name: Install flutter
         uses: subosito/flutter-action@v2
         with:
-            channel: 'stable'
-            cache: true
+          channel: 'stable'
+          cache: true
 
       - name: Install dependencies
         run: flutter pub get
