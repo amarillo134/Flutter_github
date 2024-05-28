@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_github/features/food/food_list.dart';
 import 'package:flutter_github/features/food/state/food_bloc.dart';
-import 'package:flutter_github/features/food/state/food_event.dart';
 import 'package:flutter_github/features/food/state/food_state.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-class MockFoodBloc extends MockBloc<FoodEvent, FoodState> implements FoodBloc {}
+import 'food_list_test.mocks.dart';
 
+@GenerateNiceMocks([MockSpec<FoodBloc>()])
 void main() {
   late MockFoodBloc mockFoodBloc;
 
