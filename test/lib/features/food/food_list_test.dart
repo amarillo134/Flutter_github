@@ -5,7 +5,7 @@ import 'package:bloc_test/bloc_test.dart';
 
 class MockFoodBloc extends MockBloc<FoodEvent, FoodState> implements FoodBloc {}
 
-void main() {
+//void main() {
   // late MockFoodBloc mockFoodBloc;
   //
   // setUp(() {
@@ -34,4 +34,4 @@ void main() {
   //     expect(indicator, findsOneWidget);
   //   },
   // );
-}
+//}
