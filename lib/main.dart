@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'features/food/state/food_bloc.dart';
+import 'features/food/state/food_event.dart';
 import 'github_app.dart';
 
 void main() {
@@ -11,6 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GithubApp();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => FoodBloc()..add(const LoadFood())),
+      ],
+      child: const GithubApp(),
+    );
   }
 }
