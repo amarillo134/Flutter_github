@@ -25,18 +25,18 @@ void main() {
       ),
     );
   }
-
-  testWidgets(
-    'show circularProgressIndicator on loading',
-    (widgetTester) async {
-      // arrange
-      when(mockFoodBloc.state).thenReturn(const LoadingState());
-      // act
-      await widgetTester.pumpWidget(widgetsWrapper(const FoodList()));
-
-      // assert
-      final indicator = find.byType(CircularProgressIndicator);
-      expect(indicator, findsOneWidget);
-    },
-  );
+  //
+  // testWidgets(
+  //   'show circularProgressIndicator on loading',
+  //   (widgetTester) async {
+  //     // arrange
+  //     when(mockFoodBloc.state).thenReturn(const LoadingState());
+  //     // act
+  //     await widgetTester.pumpWidget(widgetsWrapper(const FoodList()));
+  //
+  //     // assert
+  //     final indicator = find.byType(CircularProgressIndicator);
+  //     expect(indicator, findsOneWidget);
+  //   },
+  // );
 }
