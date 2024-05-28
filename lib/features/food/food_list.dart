@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../core/navigation/route_paths.dart';
+import 'state/food_bloc.dart';
+import 'state/food_state.dart';
 
 class FoodList extends StatelessWidget {
   const FoodList({super.key});
@@ -16,16 +18,24 @@ class FoodList extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child: ListView.separated(
-              itemCount: 8,
-              itemBuilder: (_, index) {
-                return ListTile(
-                  leading: Text('$index', style: style),
-                  trailing: const Text('food', style: style),
+            child: BlocBuilder<FoodBloc, FoodState>(
+              builder: (context, state) {
+                return state.when(
+                  loading: () => const CircularProgressIndicator(),
+                  loaded: (foodList) => ListView.separated(
+                    itemCount: foodList.length,
+                    itemBuilder: (_, index) {
+                      return ListTile(
+                        leading: Text('$index', style: style),
+                        trailing: Text(foodList[index], style: style),
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) {
+                      return const Divider();
+                    },
+                  ),
+                  error: () => const Text('Error'),
                 );
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return const Divider();
               },
             ),
           ),

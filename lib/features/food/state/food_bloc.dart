@@ -10,7 +10,7 @@ class FoodBloc extends Bloc<FoodEvent, FoodState> {
   }
 
   FutureOr<void> _onLoadFood(LoadFood event, Emitter<FoodState> emit) {
-    final foodList = ['food1, food2'];
+    final foodList = ['food1', 'food2'];
     emit(LoadedState(foodList));
   }
 
